@@ -1,4 +1,4 @@
-package EAM.TiedndaProducto.model;
+package EAM.TiendaProducto.model;
 
 import jakarta.persistence.*;
 
@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProduct;
+    private long idProduct;
 
     @Column(name = "name")
     private String name;
@@ -29,20 +29,19 @@ public class Product {
         super();
     }
 
-    public Product(int idProduct, String name, String description, double price, int stock, Store store) {
-        this.idProduct = idProduct;
+    public Product( String name, String description, double price, int stock, Store store) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.store = store;
+        this.store= store;
     }
 
-    public int getIdProduct() {
+    public long getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(int idProduct) {
+    public void setIdProduct(long idProduct) {
         this.idProduct = idProduct;
     }
 

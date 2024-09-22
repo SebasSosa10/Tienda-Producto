@@ -1,4 +1,4 @@
-package EAM.TiedndaProducto.model;
+package EAM.TiendaProducto.model;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idStore;
+    private long idStore;
 
     @Column(name = "name")
     private String name;
@@ -24,18 +24,17 @@ public class Store {
         super();
     }
 
-    public Store(int idStore, String name, String location, List<Product> products) {
-        this.idStore = idStore;
+    public Store(String name, String location, List<Product> products) {
         this.name = name;
         this.location = location;
         this.products = products;
     }
 
-    public int getIdStore() {
+    public long getIdStore() {
         return idStore;
     }
 
-    public void setIdStore(int idStore) {
+    public void setIdStore(long idStore) {
         this.idStore = idStore;
     }
 

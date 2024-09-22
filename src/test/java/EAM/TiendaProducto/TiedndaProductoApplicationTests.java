@@ -1,4 +1,4 @@
-package EAM.TiedndaProducto;
+package EAM.TiendaProducto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
