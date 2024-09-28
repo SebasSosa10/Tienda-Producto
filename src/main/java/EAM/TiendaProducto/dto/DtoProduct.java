@@ -1,10 +1,17 @@
 package EAM.TiendaProducto.dto;
 
+import jakarta.validation.constraints.*;
+
 public class DtoProduct {
+        @NotBlank(message = "Este campo no puede estar Vacio")
         private String name;
+        @NotBlank(message = "Este campo no puede estar Vacio")
         private String description;
+        @NotBlank(message = "Este campo no puede estar Vacio")
         private double price;
+        @NotBlank(message = "Este campo no puede estar Vacio")
         private int stock;
+        @NotBlank(message = "Este campo no puede estar Vacio")
         private int storeId;
 
     public DtoProduct() {

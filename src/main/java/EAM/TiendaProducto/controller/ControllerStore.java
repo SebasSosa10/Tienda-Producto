@@ -6,6 +6,7 @@ import EAM.TiendaProducto.dto.DtoStore;
 import EAM.TiendaProducto.service.ServiceProduct;
 import EAM.TiendaProducto.service.ServiceStore;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,13 +33,13 @@ public class ControllerStore {
     }
 
     @PostMapping
-    public ResponseEntity<Store> createStore(@RequestBody Store store) {
+    public ResponseEntity<Store> createStore(@Valid @RequestBody Store store) {
         Store createdStore = serviceStore.createStore(store);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdStore);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateStore(@PathVariable Long id, @RequestBody Store store) {
+    public ResponseEntity<Void> updateStore(@PathVariable Long id, @Valid @RequestBody Store store) {
         try {
             serviceStore.updateStore(id, store);
             return ResponseEntity.noContent().build();

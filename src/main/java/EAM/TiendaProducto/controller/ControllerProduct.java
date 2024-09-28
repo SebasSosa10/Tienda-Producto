@@ -3,6 +3,7 @@ import EAM.TiendaProducto.dto.DtoProduct;
 import EAM.TiendaProducto.model.Product;
 import EAM.TiendaProducto.service.ServiceProduct;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -30,13 +31,13 @@ public class ControllerProduct {
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
         Product createdProduct = serviceProduct.createProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateProduct(@PathVariable Long id, @RequestBody Product updatedProductData) {
+    public ResponseEntity<Void> updateProduct(@PathVariable Long id, @Valid @RequestBody Product updatedProductData) {
         try {
             serviceProduct.updateProduct(id, updatedProductData);
             return ResponseEntity.noContent().build();
